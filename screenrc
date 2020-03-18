@@ -2,6 +2,7 @@ altscreen on
 term screen-256color
 bind ',' prev
 bind '.' next
+shell -$SHELL
 #
 #change the hardstatus settings to give an window list at the bottom of the
 #screen, with the time and date and with the current window highlighted

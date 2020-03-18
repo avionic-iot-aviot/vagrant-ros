@@ -50,6 +50,5 @@ cd ardupilot
 git submodule update --init --recursive
 export HOME=/home/vagrant
 sudo -u vagrant Tools/environment_install/install-prereqs-ubuntu.sh -y
-echo "export PATH=$PATH:$HOME/ardupilot/Tools/autotest" >> /home/vagrant/.bashrc
-echo "export PATH=/usr/lib/ccache:$PATH" >> /home/vagrant/.bashrc
-sudo chown -R vagrant:vagrant /home/vagrant/ardupilot/
+echo "export PATH=\$PATH:\$HOME/ardupilot/Tools/autotest:/usr/lib/ccache" >> /home/vagrant/.bashrc
+sudo chown -R vagrant:vagrant /home/vagrant/ardupilot
