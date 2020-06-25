@@ -1,5 +1,6 @@
 #!/bin/bash
-
+set -e
+set -x
 
 # Installing nodejs
 sudo apt install -y nodejs npm

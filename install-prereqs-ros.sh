@@ -18,13 +18,14 @@ sudo apt-get update
 # Installation
 echo "Installing ROS."
 sudo apt-get -y install ros-kinetic-ros-base
-sudo apt-get -y install python-rosinstall python-rosinstall-generator python-wstool build-essential python-catkin-tools
-
+sudo apt-get -y install python-pip build-essential python-catkin-tools
+sudo pip install --upgrade pip
+sudo pip install -U rosdep rosinstall_generator vcstool rosinstall
 
 # Initialize rosdep
 ## TODO : fix that. It should be run only once
 sudo rosdep init || true
-su - vagrant -c 'rosdep update'
+sudo rosdep update
 
 # Installing mavros
 echo "Installing Mavros."
@@ -52,3 +53,4 @@ export HOME=/home/vagrant
 sudo -u vagrant Tools/environment_install/install-prereqs-ubuntu.sh -y
 echo "export PATH=\$PATH:\$HOME/ardupilot/Tools/autotest:/usr/lib/ccache" >> /home/vagrant/.bashrc
 sudo chown -R vagrant:vagrant /home/vagrant/ardupilot
+sudo chmod +x /vagrant/install-aviot-pkgs.sh
