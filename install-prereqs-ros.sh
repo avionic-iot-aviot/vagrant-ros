@@ -18,8 +18,10 @@ sudo apt-get update
 # Installation
 echo "Installing ROS."
 sudo apt-get -y install ros-kinetic-ros-base
-sudo apt-get -y install python-pip build-essential python-catkin-tools
-sudo pip install --upgrade pip
+sudo apt-get -y install build-essential python-catkin-tools
+curl  https://bootstrap.pypa.io/pip/2.7/get-pip.py -o get-pip.py
+python get-pip.py
+sudo pip install --upgrade "pip < 21.0"
 sudo pip install -U rosdep rosinstall_generator vcstool rosinstall
 
 # Initialize rosdep
@@ -50,6 +52,7 @@ git clone https://github.com/ArduPilot/ardupilot
 cd ardupilot
 git submodule update --init --recursive
 export HOME=/home/vagrant
+sudo pip install future
 sudo -u vagrant Tools/environment_install/install-prereqs-ubuntu.sh -y
 echo "export PATH=\$PATH:\$HOME/ardupilot/Tools/autotest:/usr/lib/ccache" >> /home/vagrant/.bashrc
 sudo chown -R vagrant:vagrant /home/vagrant/ardupilot
